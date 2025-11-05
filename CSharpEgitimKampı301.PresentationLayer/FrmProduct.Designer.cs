@@ -119,6 +119,7 @@
             this.btnList.TabIndex = 16;
             this.btnList.Text = "Listele";
             this.btnList.UseVisualStyleBackColor = true;
+            this.btnList.Click += new System.EventHandler(this.btnList_Click);
             // 
             // txtProductId
             // 
@@ -230,6 +231,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FrmProduct";
             this.Text = "FrmProduct";
+            this.Load += new System.EventHandler(this.FrmProduct_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
