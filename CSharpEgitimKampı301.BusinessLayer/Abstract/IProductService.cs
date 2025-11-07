@@ -7,7 +7,9 @@ using CSharpEgitimKampı301.EntityLayer.Concrete;
 
 namespace CSharpEgitimKampı301.BusinessLayer.Abstract
 {
-    public interface IProductService : IGenericService<Product>
+    public interface IProductService : IGenericService<Object>
     {
+        List<Object> TGetProductsWithCategory();
+
     }
 }

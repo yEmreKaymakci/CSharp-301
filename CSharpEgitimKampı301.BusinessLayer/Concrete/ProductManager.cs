@@ -20,6 +20,12 @@ namespace CSharpEgitimKampı301.BusinessLayer.Concrete
         {
             _productDal.Delete(entity);
         }
+
+        public void TDelete(object entity)
+        {
+            throw new NotImplementedException();
+        }   
+
         public List<Product> TGetAll()
         {
             return _productDal.GetAll();
@@ -28,13 +34,33 @@ namespace CSharpEgitimKampı301.BusinessLayer.Concrete
         {
             return _productDal.GetById(id);
         }
+
+        public List<object> TGetProductsWithCategory()
+        {
+            return _productDal.GetProductsWithCategory();
+        }
+
         public void TInsert(Product entity)
         {
             _productDal.Insert(entity);
         }
+
+        
         public void TUpdate(Product entity)
         {
             _productDal.Update(entity);
+        }
+
+       
+
+        List<object> IGenericService<object>.TGetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        object IGenericService<object>.TGetById(int id)
+        {
+            return TGetById(id);
         }
     }
 }

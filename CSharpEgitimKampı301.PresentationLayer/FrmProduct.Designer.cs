@@ -46,6 +46,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.cmbCategory = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.btnList2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,6 +76,7 @@
             this.btnDelete.TabIndex = 24;
             this.btnDelete.Text = "Sil";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnAdd
             // 
@@ -84,6 +86,7 @@
             this.btnAdd.TabIndex = 23;
             this.btnAdd.Text = "Ekle";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // txtProductStock
             // 
@@ -108,14 +111,14 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(883, 596);
+            this.dataGridView1.Size = new System.Drawing.Size(1155, 596);
             this.dataGridView1.TabIndex = 17;
             // 
             // btnList
             // 
-            this.btnList.Location = new System.Drawing.Point(128, 347);
+            this.btnList.Location = new System.Drawing.Point(128, 344);
             this.btnList.Name = "btnList";
-            this.btnList.Size = new System.Drawing.Size(188, 43);
+            this.btnList.Size = new System.Drawing.Size(88, 43);
             this.btnList.TabIndex = 16;
             this.btnList.Text = "Listele";
             this.btnList.UseVisualStyleBackColor = true;
@@ -205,12 +208,23 @@
             this.label7.TabIndex = 36;
             this.label7.Text = "Açıklama:";
             // 
+            // btnList2
+            // 
+            this.btnList2.Location = new System.Drawing.Point(228, 344);
+            this.btnList2.Name = "btnList2";
+            this.btnList2.Size = new System.Drawing.Size(88, 43);
+            this.btnList2.TabIndex = 37;
+            this.btnList2.Text = "Listele2";
+            this.btnList2.UseVisualStyleBackColor = true;
+            this.btnList2.Click += new System.EventHandler(this.btnList2_Click);
+            // 
             // FrmProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.ClientSize = new System.Drawing.Size(1251, 637);
+            this.ClientSize = new System.Drawing.Size(1519, 637);
+            this.Controls.Add(this.btnList2);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.cmbCategory);
             this.Controls.Add(this.txtProductName);
@@ -258,5 +272,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cmbCategory;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnList2;
     }
 }
