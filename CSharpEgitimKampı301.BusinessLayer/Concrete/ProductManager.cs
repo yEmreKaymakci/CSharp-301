@@ -1,66 +1,58 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// BusinessLayer/Concrete/ProductManager.cs (NASIL OLMALI)
 using CSharpEgitimKampı301.BusinessLayer.Abstract;
 using CSharpEgitimKampı301.DataAccessLayer.Abstract;
 using CSharpEgitimKampı301.EntityLayer.Concrete;
+using System.Collections.Generic;
 
-namespace CSharpEgitimKampı301.BusinessLayer.Concrete
+public class ProductManager : IProductService
 {
-    public class ProductManager : IProductService
+    private readonly IProductDal _productDal;
+
+    public ProductManager(IProductDal productDal)
     {
-        private readonly IProductDal _productDal;
-        public ProductManager(IProductDal productDal)
-        {
-            _productDal = productDal;
-        }
-        public void TDelete(Product entity)
-        {
-            _productDal.Delete(entity);
-        }
+        _productDal = productDal;
+    }
 
-        public void TDelete(object entity)
-        {
-            throw new NotImplementedException();
-        }   
+    // --- IGenericService<Product> Metotları ---
 
-        public List<Product> TGetAll()
-        {
-            return _productDal.GetAll();
-        }
-        public Product TGetById(int id)
-        {
-            return _productDal.GetById(id);
-        }
+    // Ekleme İşlemi (Artık Object yerine Product almalı)
+    public void TInsert(Product entity)
+    {
+        // Doğrudan Product türü geldiği için casting ihtiyacı yok.
+        // Veri doğrulama (Validation) burada yapılabilir.
+        _productDal.Insert(entity);
+    }
 
-        public List<object> TGetProductsWithCategory()
-        {
-            return _productDal.GetProductsWithCategory();
-        }
+    // Silme İşlemi (Product türü alıyor)
+    public void TDelete(Product entity)
+    {
+        _productDal.Delete(entity);
+    }
 
-        public void TInsert(Product entity)
-        {
-            _productDal.Insert(entity);
-        }
+    // Güncelleme İşlemi (Product türü alıyor)
+    public void TUpdate(Product entity)
+    {
+        // Burayı uygulamalıyız
+        _productDal.Update(entity);
+    }
 
-        
-        public void TUpdate(Product entity)
-        {
-            _productDal.Update(entity);
-        }
+    // ID'ye göre Getirme
+    public Product TGetById(int id)
+    {
+        return _productDal.GetById(id);
+    }
 
-       
+    // Tümünü Getirme
+    public List<Product> TGetAll()
+    {
+        return _productDal.GetAll();
+    }
 
-        List<object> IGenericService<object>.TGetAll()
-        {
-            throw new NotImplementedException();
-        }
+    // --- IProductService'e Özel Metotlar ---
 
-        object IGenericService<object>.TGetById(int id)
-        {
-            return TGetById(id);
-        }
+    // Kategoriyle Birlikte Ürünleri Getirme (Object veya DTO kullanabilir)
+    public List<object> TGetProductsWithCategory()
+    {
+        return _productDal.GetProductsWithCategory();
     }
 }
